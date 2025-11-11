@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="footer-section">
           <h4>Contact</h4>
           <Link to="/contact">Get in Touch</Link>
-          <a href="mailto:info@ceerion.com">info@ceerion.com</a>
+          <a href="mailto:info@ceerionenergy.com">info@ceerionenergy.com</a>
           <a href="tel:+18885551234">1-888-555-CEERION</a>
         </div>
       </div>

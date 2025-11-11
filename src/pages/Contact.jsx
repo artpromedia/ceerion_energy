@@ -6,6 +6,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    location: "",
     projectType: "residential",
     message: "",
   });
@@ -49,6 +50,7 @@ export default function Contact() {
         setFormData({
           name: "",
           email: "",
+          location: "",
           projectType: "residential",
           message: "",
         });
@@ -109,6 +111,19 @@ export default function Contact() {
             </label>
 
             <label>
+              Location (Zip Code / Postal Code / City)
+              <input
+                type="text"
+                placeholder="90210, M5V 3L9, or London"
+                value={formData.location}
+                onChange={(e) => handleChange("location", e.target.value)}
+              />
+              <small style={{ color: "var(--c-silver)", fontSize: "0.85rem" }}>
+                Helps us provide region-specific information
+              </small>
+            </label>
+
+            <label>
               Project Type
               <select
                 value={formData.projectType}
@@ -148,7 +163,7 @@ export default function Contact() {
           <div className="card">
             <h4>📧 Email</h4>
             <p>
-              <a href="mailto:info@ceerion.com">info@ceerion.com</a>
+              <a href="mailto:info@ceerionenergy.com">info@ceerionenergy.com</a>
             </p>
             <p className="muted">General inquiries and support</p>
           </div>
@@ -162,7 +177,7 @@ export default function Contact() {
           <div className="card">
             <h4>💼 Sales</h4>
             <p>
-              <a href="mailto:sales@ceerion.com">sales@ceerion.com</a>
+              <a href="mailto:sales@ceerionenergy.com">sales@ceerionenergy.com</a>
             </p>
             <p className="muted">Commercial and residential projects</p>
           </div>

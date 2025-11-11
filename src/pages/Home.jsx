@@ -111,7 +111,7 @@ export default function Home() {
           Secure your place in line to deploy CEERION Energy—residential or commercial—and get early
           access to the configurator experience.
         </p>
-        <a className="primary-btn" href="mailto:info@ceerion.com">Contact Sales</a>
+        <a className="primary-btn" href="mailto:info@ceerionenergy.com">Contact Sales</a>
       </Section>
     </>
   );

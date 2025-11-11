@@ -118,7 +118,7 @@ export default function Company() {
             </ul>
           </div>
         </div>
-        <a className="primary-btn" href="mailto:careers@ceerion.com">
+        <a className="primary-btn" href="mailto:careers@ceerionenergy.com">
           Apply Now
         </a>
       </Section>
@@ -182,7 +182,7 @@ export default function Company() {
           For press inquiries, media kits, high-resolution images, or interview requests, please
           contact our communications team.
         </p>
-        <a className="ghost-btn" href="mailto:press@ceerion.com">
+        <a className="ghost-btn" href="mailto:press@ceerionenergy.com">
           Media Contact
         </a>
       </Section>

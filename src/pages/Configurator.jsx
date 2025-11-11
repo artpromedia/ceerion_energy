@@ -7,14 +7,14 @@ import { useCurrency } from "../context/CurrencyContext.jsx";
 const PRODUCTS = {
   h1: {
     name: "H1 Home Essentials",
-    basePrice: 35000,
+    basePrice: 3500,
     solarPrice: 2500, // per kW
     batteryPrice: 800, // per kWh
     description: "Complete residential energy independence system",
   },
   b3: {
     name: "B3 Microgrid Campus",
-    basePrice: 95000,
+    basePrice: 9500,
     solarPrice: 2200, // per kW (bulk discount)
     batteryPrice: 700, // per kWh (bulk discount)
     description: "Scalable commercial/campus energy platform",
@@ -127,7 +127,7 @@ export default function Configurator() {
             <input
               type="range"
               min={config.productType === "h1" ? "4" : "15"}
-              max={config.productType === "h1" ? "15" : "50"}
+              max={config.productType === "h1" ? "12" : "50"}
               step="1"
               value={config.solarSize}
               onChange={(e) => updateConfig("solarSize", parseInt(e.target.value))}
@@ -213,14 +213,17 @@ export default function Configurator() {
               />
             </label>
             <label className="input-label">
-              Zip Code (for solar estimates)
+              Location (Zip Code / Postal Code / City)
               <input
                 type="text"
-                placeholder="90210"
-                maxLength="5"
+                placeholder="90210, M5V 3L9, or London"
+                maxLength="50"
                 value={config.zipCode}
                 onChange={(e) => updateConfig("zipCode", e.target.value)}
               />
+              <small style={{ color: "var(--c-silver)", fontSize: "0.85rem" }}>
+                For solar estimates and regional incentive information
+              </small>
             </label>
           </div>
 
@@ -263,14 +266,14 @@ export default function Configurator() {
                 <p className="muted">Before incentives</p>
               </div>
               <div className="card">
-                <h4>Federal Tax Credit (30%)</h4>
+                <h4>Federal Tax Credit (30%)*</h4>
                 <p className="price-large">-<Price amount={federalTaxCredit} large /></p>
-                <p className="muted">Investment Tax Credit</p>
+                <p className="muted">Investment Tax Credit (US)</p>
               </div>
               <div className="card">
                 <h4>Net Cost</h4>
                 <p className="price-large"><Price amount={netCost} large /></p>
-                <p className="muted">After federal incentives</p>
+                <p className="muted">After federal incentives (US)*</p>
               </div>
             </div>
             <div className="grid-2" style={{ marginTop: "var(--spacing-lg)" }}>
@@ -286,6 +289,15 @@ export default function Configurator() {
                 <p className="price-large">{paybackYears.toFixed(1)} years</p>
                 <p className="muted">25+ year system lifespan</p>
               </div>
+            </div>
+            
+            <div style={{ marginTop: "var(--spacing-lg)", padding: "var(--spacing-md)", backgroundColor: "var(--c-charcoal)", borderRadius: "var(--border-radius)", fontSize: "0.9rem", color: "var(--c-silver)" }}>
+              <p>
+                <strong>*Important:</strong> Federal tax credits (30% ITC) are specific to the United States. 
+                International customers should consult local renewable energy incentives and regulations. 
+                Pricing shown is estimated and subject to site assessment, local codes, and regional factors. 
+                Final pricing and available incentives will be confirmed during consultation.
+              </p>
             </div>
           </Section>
 
@@ -345,7 +357,7 @@ export default function Configurator() {
               assessment, discuss financing options, and confirm your reservation.
             </p>
             <div style={{ display: "flex", gap: "var(--spacing-md)", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="mailto:sales@ceerion.com" className="primary-btn">
+              <a href="mailto:sales@ceerionenergy.com" className="primary-btn">
                 Contact Sales Team
               </a>
               <button

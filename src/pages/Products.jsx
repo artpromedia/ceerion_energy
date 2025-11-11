@@ -9,24 +9,24 @@ const getProducts = (formatPrice) => [
     id: "h1",
     name: "H1 Home Essentials",
     segment: "Residential",
-    priceUSD: 35000,
+    priceUSD: 3500,
     get price() {
-      return `Starting at ${formatPrice(this.priceUSD)}`;
+      return `Starting at ${formatPrice(this.priceUSD)}*`;
     },
     summary:
       "A right-sized CEERION Energy package for single-family homes that want protection from outages, lower bills, and EV-based backup.",
     features: [
-      "4-15 kW solar generation (rooftop or carport)",
+      "4-12 kW solar generation (rooftop or carport)",
       "10-40 kWh modular battery storage",
-      "CEERION POWER MANAGER™ for circuit-level control",
+      "CEERION POWER MANAGERâ„¢ for circuit-level control",
       "EV-native: V2H for extending backup runtime",
       "Up to 32 controllable circuits",
       "Storm Mode and automatic islanding",
     ],
     specs: {
       "Service Rating": "200A (upgradable to 400A)",
-      "Solar Capacity": "4-15 kW DC-coupled",
-      "Battery Capacity": "10-40 kWh (LiFePO₄)",
+      "Solar Capacity": "4-12 kW DC-coupled",
+      "Battery Capacity": "10-40 kWh (LiFePOâ‚„)",
       "Backup Transition": "<20ms seamless",
       "EV Charging": "Up to 11.5kW L2, V2H capable",
       "Installation Time": "2-3 days typical",
@@ -36,9 +36,9 @@ const getProducts = (formatPrice) => [
     id: "b3",
     name: "B3 Microgrid Campus",
     segment: "Commercial / Campus",
-    priceUSD: 95000,
+    priceUSD: 9500,
     get price() {
-      return `Starting at ${formatPrice(this.priceUSD)}`;
+      return `Starting at ${formatPrice(this.priceUSD)}*`;
     },
     summary:
       "A scalable, dispatchable energy platform for clinics, estates, schools, and business parks that need always-on power.",
@@ -144,7 +144,7 @@ export default function Products() {
 
           <div className="comparison-row">
             <div className="comparison-label">Solar Range</div>
-            <div className="comparison-cell">4-15 kW</div>
+            <div className="comparison-cell">4-12 kW</div>
             <div className="comparison-cell">15-50+ kW</div>
           </div>
 
@@ -156,8 +156,8 @@ export default function Products() {
 
           <div className="comparison-row">
             <div className="comparison-label">Starting Price</div>
-            <div className="comparison-cell"><Price amount={35000} /></div>
-            <div className="comparison-cell"><Price amount={95000} /></div>
+            <div className="comparison-cell"><Price amount={3500} />*</div>
+            <div className="comparison-cell"><Price amount={9500} />*</div>
           </div>
 
           <div className="comparison-row">
@@ -177,6 +177,15 @@ export default function Products() {
             <div className="comparison-cell">10 years standard</div>
             <div className="comparison-cell">10 years standard, 15 available</div>
           </div>
+        </div>
+        
+        <div style={{ marginTop: "var(--spacing-lg)", padding: "var(--spacing-md)", backgroundColor: "var(--c-charcoal)", borderRadius: "var(--border-radius)", fontSize: "0.9rem", color: "var(--c-silver)" }}>
+          <p>
+            <strong>*Pricing Note:</strong> Starting prices reflect base 4kW solar configuration for H1 (expandable to 12kW) and base configuration for B3. 
+            Final pricing varies based on system size, installation complexity, and regional factors. 
+            Federal incentives (such as the 30% ITC) are specific to the United States and other regions with similar renewable energy legislation. 
+            Contact us for a detailed quote and incentive information specific to your location.
+          </p>
         </div>
       </Section>
 
@@ -217,19 +226,22 @@ export default function Products() {
 
       <Section title="Financing & Incentives">
         <p>
-          CEERION Energy systems qualify for significant federal and state incentives. We also offer
+          CEERION Energy systems qualify for significant federal and state incentives in the United States and other regions with similar renewable energy legislation. We also offer
           flexible financing options to make energy independence accessible.
         </p>
         <div className="grid-2">
           <div className="card">
-            <h4>💰 Available Incentives</h4>
+            <h4>💰 Available Incentives (US & Select Regions)</h4>
             <ul className="bullet-list">
-              <li>30% Federal Investment Tax Credit (ITC)</li>
-              <li>State and local solar rebates</li>
-              <li>Battery storage incentives (varies by state)</li>
-              <li>Net metering credits</li>
-              <li>Commercial accelerated depreciation (MACRS)</li>
+              <li>30% Federal Investment Tax Credit (ITC) - US only</li>
+              <li>State and local solar rebates (varies by region)</li>
+              <li>Battery storage incentives (varies by jurisdiction)</li>
+              <li>Net metering credits (where applicable)</li>
+              <li>Commercial accelerated depreciation (MACRS) - US only</li>
             </ul>
+            <p style={{ marginTop: "var(--spacing-sm)", fontSize: "0.9rem", color: "var(--c-silver)" }}>
+              *Incentives vary by country and region. Contact us for specific incentives available in your area.
+            </p>
           </div>
           <div className="card">
             <h4>🏦 Financing Options</h4>
