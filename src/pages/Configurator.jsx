@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Hero from "../components/Hero.jsx";
 import Section from "../components/Section.jsx";
+import Price from "../components/Price.jsx";
+import { useCurrency } from "../context/CurrencyContext.jsx";
 
 const PRODUCTS = {
   h1: {
@@ -20,6 +22,9 @@ const PRODUCTS = {
 };
 
 export default function Configurator() {
+  const { formatPrice, getCurrencyInfo } = useCurrency();
+  const currencyInfo = getCurrencyInfo();
+  
   const [config, setConfig] = useState({
     productType: "h1",
     solarSize: 8, // kW
@@ -254,24 +259,24 @@ export default function Configurator() {
             <div className="grid-3">
               <div className="card">
                 <h4>Total System Cost</h4>
-                <p className="price-large">${systemCost.toLocaleString()}</p>
+                <p className="price-large"><Price amount={systemCost} large /></p>
                 <p className="muted">Before incentives</p>
               </div>
               <div className="card">
                 <h4>Federal Tax Credit (30%)</h4>
-                <p className="price-large">-${federalTaxCredit.toLocaleString()}</p>
+                <p className="price-large">-<Price amount={federalTaxCredit} large /></p>
                 <p className="muted">Investment Tax Credit</p>
               </div>
               <div className="card">
                 <h4>Net Cost</h4>
-                <p className="price-large">${netCost.toLocaleString()}</p>
+                <p className="price-large"><Price amount={netCost} large /></p>
                 <p className="muted">After federal incentives</p>
               </div>
             </div>
             <div className="grid-2" style={{ marginTop: "var(--spacing-lg)" }}>
               <div className="card">
                 <h4>Estimated Monthly Savings</h4>
-                <p className="price-large">${monthlySavings.toFixed(0)}</p>
+                <p className="price-large"><Price amount={monthlySavings} large /></p>
                 <p className="muted">
                   ~{((monthlySavings / config.avgMonthlyBill) * 100).toFixed(0)}% reduction in electric bills
                 </p>

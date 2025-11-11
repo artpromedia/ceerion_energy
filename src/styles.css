@@ -127,6 +127,12 @@ a:hover {
   gap: var(--spacing-lg);
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -169,6 +175,60 @@ a:hover {
 .reserve-btn:hover {
   background-color: var(--c-light-silver);
   transform: translateY(-1px);
+}
+
+/* ==================
+   Currency Selector
+   ================== */
+
+.currency-selector {
+  position: relative;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.currency-select {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--c-dark-grey);
+  color: var(--c-light-silver);
+  border: 1px solid var(--c-dark-grey);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 180px;
+}
+
+.currency-select:hover {
+  border-color: var(--c-silver);
+  background-color: var(--c-charcoal);
+}
+
+.currency-select:focus {
+  outline: none;
+  border-color: var(--c-white);
+}
+
+.currency-select option {
+  background-color: var(--c-charcoal);
+  color: var(--c-light-silver);
+  padding: var(--spacing-sm);
+}
+
+.currency-select optgroup {
+  font-weight: 600;
+  color: var(--c-white);
 }
 
 /* ==================
@@ -977,6 +1037,19 @@ button.ghost-btn {
   .topbar-inner {
     flex-direction: column;
     gap: var(--spacing-sm);
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .currency-select {
+    flex: 1;
+  }
+
+  .reserve-btn {
+    flex: 1;
   }
 
   .nav {

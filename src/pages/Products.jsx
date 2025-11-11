@@ -1,13 +1,18 @@
 import Hero from "../components/Hero.jsx";
 import Section from "../components/Section.jsx";
+import Price from "../components/Price.jsx";
 import { Link } from "react-router-dom";
+import { useCurrency } from "../context/CurrencyContext.jsx";
 
-const products = [
+const getProducts = (formatPrice) => [
   {
     id: "h1",
     name: "H1 Home Essentials",
     segment: "Residential",
-    price: "Starting at $35,000",
+    priceUSD: 35000,
+    get price() {
+      return `Starting at ${formatPrice(this.priceUSD)}`;
+    },
     summary:
       "A right-sized CEERION Energy package for single-family homes that want protection from outages, lower bills, and EV-based backup.",
     features: [
@@ -31,7 +36,10 @@ const products = [
     id: "b3",
     name: "B3 Microgrid Campus",
     segment: "Commercial / Campus",
-    price: "Starting at $95,000",
+    priceUSD: 95000,
+    get price() {
+      return `Starting at ${formatPrice(this.priceUSD)}`;
+    },
     summary:
       "A scalable, dispatchable energy platform for clinics, estates, schools, and business parks that need always-on power.",
     features: [
@@ -54,6 +62,9 @@ const products = [
 ];
 
 export default function Products() {
+  const { formatPrice } = useCurrency();
+  const products = getProducts(formatPrice);
+  
   return (
     <>
       <Hero
@@ -145,8 +156,8 @@ export default function Products() {
 
           <div className="comparison-row">
             <div className="comparison-label">Starting Price</div>
-            <div className="comparison-cell">$35,000</div>
-            <div className="comparison-cell">$95,000</div>
+            <div className="comparison-cell"><Price amount={35000} /></div>
+            <div className="comparison-cell"><Price amount={95000} /></div>
           </div>
 
           <div className="comparison-row">

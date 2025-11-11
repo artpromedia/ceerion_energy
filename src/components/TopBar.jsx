@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import CurrencySelector from "./CurrencySelector.jsx";
 
 export default function TopBar() {
   return (
@@ -16,9 +17,12 @@ export default function TopBar() {
           <NavLink to="/company">Company</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
-        <Link className="reserve-btn" to="/configurator">
-          Configure
-        </Link>
+        <div className="topbar-actions">
+          <CurrencySelector />
+          <Link className="reserve-btn" to="/configurator">
+            Configure
+          </Link>
+        </div>
       </div>
     </header>
   );
