@@ -11,13 +11,14 @@ export default function TopBar() {
           <NavLink to="/" end>Energy</NavLink>
           <NavLink to="/system">Integrated System</NavLink>
           <NavLink to="/products">Products</NavLink>
+          <NavLink to="/configurator">Configurator</NavLink>
           <NavLink to="/powershare">PowerShare™</NavLink>
           <NavLink to="/company">Company</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
-        <a className="reserve-btn" href="#reserve">
-          Reserve
-        </a>
+        <Link className="reserve-btn" to="/configurator">
+          Configure
+        </Link>
       </div>
     </header>
   );
